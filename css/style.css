@@ -1,0 +1,485 @@
+@import url("https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@100..900&family=Outfit:wght@100..900&display=swap");
+
+* {
+  text-decoration: 0;
+  box-sizing: border-box;
+  transition: all ease 0.2s;
+  list-style-type: none;
+}
+
+body {
+  font-family: "Big Shoulders Display", serif;
+  background-color: white;
+}
+/* ხელი რომ არ შეგვიშალოს ფოტოს დიდმა ზომებმა უცებ გავუწეროთ სტილები */
+.social svg {
+  display: flex;
+  height: 1.875rem;
+  width: 1.875rem;
+  gap: 2.5rem;
+  fill: white;
+}
+/* make base styles */
+/* Make images easier to work with */
+img,
+picture,
+source {
+  width: 100%;
+  height: 100%;
+  max-width: 100%; /*გამოსახულება ვერ იქნება უფრო დიდი, ვიდრე მისი მშობელი */
+  object-fit: cover; /*გამოსახულება მთლიანად შეავსებს კონტეინერს, არ გაიწელება ან არ დაპატარავდება არათანაბრად.*/
+  line-height: 0; /*<img> ან <picture>-ის გარშემო არ დარჩეს არასასურველი დამატებითი სივრცე.*/
+}
+
+/*::root სელექტორის გამოყენებით შესაძლებელია სხვადასხვა გლობალური სტილების და პარამეტრების მართვა, რაც საიტს მოქნილობას, სტრუქტურულ სისუფთავეს და ადვილად სამართავ დიზაინს აძლევს.
+იდეალურია ფერების, შრიფტების, ზომების და სხვა სტილების განსაზღვრად, რომლებსაც მთელ ვებსაიტზე გამოვიყენებთ.*/
+
+/* Hue (ტონი) – ფერის კუთხე გრადუსებში
+Saturation (სიკაშკაშე) – რამდენად მკვეთრი/გაჯერებულია ფერი.
+Lightness (სინათლე) – ფერის სიბნელე ან სიკაშკაშე 
+Alpha (გამჭვირვალობა) – 1 ნიშნავს, რომ ფერი სრულად ხილვადია. */
+:root {
+  --brown: hsla(24, 56%, 63%, 1);
+  --black: hsla(0, 0%, 8%, 1);
+  --gray: hsla(0, 0%, 27%, 1);
+  --white: hsla(0, 0%, 100%, 1);
+}
+/* დავმალოთ ჯერ-ჯერობით */
+.hero-image-mobile {
+  display: none;
+}
+.container {
+  max-width: 69.375rem;
+  margin: 0 auto;
+}
+
+/* start header styles */
+
+/* 270deg → ნიშნავს, რომ გრადიენტი მოძრაობს 270 გრადუსის მიმართულებით, რაც იგივეა, რაც მარჯვნიდან მარცხნივ.(0° - ზემოდან ქვემოთ, 90° - მარცხნიდან მარჯვნივ, 180° - ქვემოდან ზემოთ, 270° - მარჯვნიდან მარცხნივ). */
+header {
+  background: linear-gradient(270deg, #ffffff 50%, hsla(0, 0%, 8%, 1) 50%);
+}
+/* REM (Root EM) ზომა, რაც საშუალებას გაძლევს განსაზღვრო ელემენტების ზომები უფრო მოქნილად და ადვილად მართო სხვადასხვა ეკრანის ზომისთვის.
+1 rem არის ფესვურ ელემენტზე (<html>) განსაზღვრული შრიფტის ზომა.
+მაგალითად, თუ html { font-size: 16px }, მაშინ 1rem = 16px.
+rem-ის გამოყენება ზრდის მოქნილობას, რადგან ყველა ზომა ფესვური ზომის მიმართ დინამიურად იცვლება.
+თანამედროვე ბრაუზერები სრულად უჭერენ მხარს rem-ს. */
+
+.hero-section {
+  display: flex;
+  justify-content: space-between;
+  padding-block: 11.812rem 20rem;
+  background-repeat: no-repeat;
+  background-image: url(../assets/desktop/image-hero.jpg);
+  background-position: 50% 50%;
+  background-size: contain;
+}
+
+.hero-image-mobile {
+  display: none;
+}
+
+/*-----------header heading ----------*/
+/* mix-blend-mode: difference; ყოველ პიქსელზე ამოწმებს ფონის ფერს და შედეგს გამოითვლის.
+თუ ფონის რომელიმე ნაწილი თეთრია, ტექსტი შავი ხდება.
+თუ ფონის რომელიმე ნაწილი შავია, ტექსტი თეთრი რჩება.
+თუ ფონი ფოტოა და მასში ბევრი ფერია, შეიძლება difference-ის ეფექტმა შექმნას ისეთი შედეგი, სადაც ტექსტი კიდევ უფრო ფონს შეერწყმება ან ზოგიერთ ადგილას გამჭვირვალედ გამოჩნდეს.*/
+h1 {
+  max-width: 28.125rem;
+  font: 900 6rem/5.5rem "Big Shoulders Display", sans-serif;
+  text-transform: uppercase;
+  color: var(--white);
+  mix-blend-mode: difference;
+}
+.hero-text {
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
+}
+.hero-paragraph {
+  max-width: 18.75rem;
+  font: 300 1.125rem/2rem "Outfit", sans-serif;
+  color: var(--gray);
+}
+
+.hero-paragraph span {
+  font-weight: bold;
+}
+
+.btn {
+  display: flex;
+  max-width: 16.25rem;
+  background-color: var(--black);
+  justify-content: flex-end;
+}
+
+.arrow-right {
+  background-color: var(--brown);
+}
+
+.arrow-right img,
+.arrow-left img {
+  padding: 1.5rem;
+}
+
+.btn-link {
+  font: 700 1.25rem/1.5rem "Big Shoulders Display", sans-serif;
+  letter-spacing: 0.2rem;
+  color: var(--white);
+  text-transform: uppercase;
+  padding: 1.5rem 2.1875rem;
+}
+/* transition ატრიბუტი განსაზღვრავს, როგორ უნდა შეიცვალოს ელემენტის სტილი.
+all - ნიშნავს, რომ ყველა შეცვლილი სტილი (მაგალითად, background-color) ანიმაციით შეიცვლება.
+ease - ნიშნავს, რომ ანიმაცია დაიწყება ნელა, შემდეგ გაჩქარდება და ბოლოს ისევ ნელდება.
+.3s - აღნიშნავს, რომ ცვლილება 0.3 წამში დასრულდება. */
+.btn:hover,
+.btn-2:hover {
+  background-color: var(--brown);
+  transition: all ease 0.3s;
+  .arrow-right,
+  .arrow-left {
+    background-color: var(--black);
+    transition: all ease 0.3s;
+  }
+}
+
+/*CSS Grid Layout არის ორ განზომილებიანი (2D) განლაგების სისტემა, რომელიც საშუალებას გაძლევს ელემენტები დაალაგო რიგებად (rows) და სვეტებად (columns). ეს განსხვავდება Flexbox-ისგან, რომელიც ძირითადად ერთ განზომილებაზეა ორიენტირებული (ან ჰორიზონტალური, ან ვერტიკალური). 
+
+grid-template-rows: auto auto 1fr; ზედა ორი რიგი იყოს შიგთავსზე დამოკიდებული, ხოლო ბოლო რიგმა დაიკავოს დარჩენილი სივრცე.
+*/
+/* grid */
+
+.grid {
+  display: grid;
+  gap: 1.875rem;
+  margin-block: 11.25rem;
+  max-width: 100%;
+  grid-template-columns: 1fr 10rem 1fr;
+  grid-template-rows: auto auto 1fr;
+  grid-template-areas:
+    "t1 t2 t2"
+    "l1 l1 r1"
+    "l1 l1 r2";
+  transition: all ease 0.5s;
+}
+.left-feature {
+  grid-area: l1;
+  max-width: 100%;
+  overflow: hidden;
+}
+.top-feature-left {
+  display: flex;
+  flex-direction: column;
+  padding: 3.125rem;
+  gap: 2rem;
+  grid-area: t1;
+}
+.top-feature-right {
+  grid-area: t2;
+  max-width: 100%;
+  overflow: hidden;
+}
+.right-feature-1 {
+  grid-area: r1;
+  max-width: 100%;
+  overflow: hidden;
+}
+
+.right-feature-2 {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  grid-area: r2;
+  max-width: 100%;
+  padding: 3.125rem;
+  background-color: var(--black);
+}
+
+/* style grid texts */
+.heading-m {
+  font: 900 3.75rem/3.75rem "Big Shoulders Display", sans-serif;
+  text-transform: uppercase;
+  color: var(--black);
+}
+.body-m {
+  font: 300 1.125rem/2rem "Outfit", sans-serif;
+  color: var(--gray);
+}
+.heading-m-white {
+  color: var(--white);
+}
+.body-m-white {
+  font: 300 1.125rem/2rem "Outfit", sans-serif;
+  color: var(--white);
+}
+/* footer styles */
+footer {
+  background-color: var(--black);
+  padding-block: 3.5rem;
+}
+.flex {
+  display: flex;
+  gap: 1.875rem;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+.body-s {
+  font: 200 1.125rem/1.5rem "Outfit", sans-serif;
+  color: var(--white);
+  max-width: 23.125rem;
+}
+.social,
+.social-2 {
+  display: flex;
+  gap: 1.5rem;
+}
+
+/* hover styles */
+
+.top-feature-right :hover,
+.left-feature :hover,
+.right-feature-1 :hover {
+  transform: scale(1.05);
+  transition: all ease 0.5s;
+}
+.social svg:hover {
+  fill: var(--brown);
+}
+
+/* @media (hover: hover) გამოიყენება მხოლოდ იმ მოწყობილობებისთვის, სადაც hover რეალურად მუშაობს (მაგალითად, კომპიუტერი, ლეპტოპი). */
+@media (hover: hover) {
+  .grid:hover > picture:not(:hover) {
+    filter: grayscale(100);
+    transition: all ease 0.5s;
+  }
+
+  .grid picture:hover {
+    filter: saturate(2);
+    transition: all ease 0.5s;
+  }
+
+  /*  ფერები შებრუნდება (invert(100)).
+ეს ნიშნავს, რომ შავი თეთრად გადაკეთდება და თეთრი შავად. ყველა ფერს ინვერსირებს, მათ შორის ფონისაც. */
+  .right-feature-2:hover,
+  .top-feature-left:hover {
+    filter: invert(100%);
+    transition: all ease 0.5s;
+  }
+  .top-feature-left {
+    background-color: #ececec;
+  }
+}
+
+/* აქ დასრულდა პირველი გვერდის სტილები და ახლა გავაკეთებ მეორე გვერდისას */
+/* location page styles */
+
+/* max-width: 100%; ნიშნავს, რომ ელემენტი არ იქნება უფრო ფართო, ვიდრე მისი მშობელი.
+მაგრამ თუ ელემენტს არ აქვს width მითითებული, ის შეიძლება იყოს უფრო ვიწრო, ვიდრე მშობელი. */
+#map {
+  width: 100%; /* ეს მნიშვნელოვანია */
+  max-width: 100%;
+  height: 37.5rem;
+  filter: grayscale(100%);
+  border: 0;
+}
+
+.btn-2 {
+  display: flex;
+  max-width: 16.25rem;
+  background-color: var(--black);
+  position: absolute;
+  top: 0;
+  flex-direction: row-reverse;
+}
+.location-main {
+  background-color: var(--black);
+}
+.adress {
+  display: flex;
+  gap: 2.5rem;
+  padding-block: 5.625rem;
+  justify-content: space-between;
+}
+.adress p {
+  color: white;
+  font: 200 1.125rem/1.5rem "Outfit", sans-serif;
+  color: var(--white);
+}
+.adress-list ul li {
+  font: 200 1.125rem/1.5rem "Outfit", sans-serif;
+  color: white;
+}
+.adress-list {
+  max-width: 33.75rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+.heading-l {
+  font: 900 3.125rem/3.4375rem "Big Shoulders Display", sans-serif;
+}
+.heading-s {
+  font: 900 1.75rem/1.875rem "Big Shoulders Display", sans-serif;
+  color: var(--brown);
+  text-transform: uppercase;
+}
+/* location footer  */
+.footer-location {
+  background-color: var(--brown);
+}
+.footer-s {
+  color: var(--black);
+}
+.social-2 svg {
+  display: flex;
+  height: 1.875rem;
+  width: 1.875rem;
+  fill: white;
+  gap: 2.5rem;
+}
+
+.social-2 svg:hover {
+  fill: var(--black);
+}
+.logo {
+  width: 9.973rem;
+  height: 3.625rem;
+}
+/* აქ მორჩა ორივე გვერდის დექსტოპ დიზაინი */
+
+/* tablet disign */
+
+@media (max-width: 50rem) {
+  .container {
+    max-width: 43.75rem;
+  }
+
+  header {
+    background: var(--white) url(../assets/tablet/image-hero.jpg) no-repeat;
+  }
+
+  .hero-section {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.25rem;
+    padding-block: 6.25rem;
+    background-image: initial;
+  }
+
+  .hero-text {
+    grid-column: 2;
+    padding-bottom: 3rem;
+  }
+
+  h1 {
+    font: 900 3.75rem/3.75rem "Big Shoulders Display", sans-serif;
+    grid-column: 2;
+    max-width: 21, 187rem;
+    text-transform: uppercase;
+  }
+
+  .heading-m {
+    font: 900 3.125rem/3.25rem "Big Shoulders Display", sans-serif;
+  }
+
+  .body-m {
+    font: 300 1rem/1.75rem "Outfit", sans-serif;
+    color: var(--gray);
+  }
+  .body-s {
+    max-width: 16.5625rem;
+  }
+  .adress {
+    display: flex;
+    gap: 6.25rem;
+    justify-content: flex-start;
+  }
+
+  .adress p {
+    max-width: 21.25rem;
+    font: 200 1rem/1.25rem "Outfit", sans-serif;
+  }
+  .social,
+  .social-2 {
+    gap: 0.625rem;
+  }
+  /* grid */
+
+  .grid {
+    gap: 1.25rem;
+  }
+}
+
+/* mobile styles */
+@media (max-width: 33.75rem) {
+  header {
+    background: var(--white);
+  }
+  .hero-image-mobile {
+    display: block;
+    object-fit: cover;
+    width: 100%;
+    max-width: 100%;
+  }
+  .hero-section {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    padding-top: 2rem;
+  }
+  .container {
+    padding-inline: 1rem;
+  }
+
+  .hero-paragraph {
+    max-width: 100%;
+  }
+
+  .flex {
+    flex-direction: column;
+  }
+
+  /* 
+  footer */
+
+  .adress {
+    gap: 1.25rem;
+    justify-content: flex-start;
+    flex-direction: column;
+    padding-block: 2.5rem;
+  }
+
+  .heading-s {
+    font: 900 1.75rem/1.875rem "Big Shoulders Display", sans-serif;
+  }
+
+  .grid {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+    margin-block: 2.5rem;
+  }
+  /* 1. "top-feature-right" პირველი უნდა იყოს */
+  .top-feature-right {
+    order: 1;
+  }
+
+  /* 2. "top-feature-left" მეორე უნდა იყოს */
+  .top-feature-left {
+    order: 2;
+  }
+
+  /* 3. დანარჩენ ელემენტებს დავამატოთ შესაბამისი თანმიმდევრობა */
+  .left-feature {
+    order: 3;
+  }
+
+  .right-feature-1 {
+    order: 4;
+  }
+
+  .right-feature-2 {
+    order: 5;
+  }
+}
